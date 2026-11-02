@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+import 'package:untitled/Screens/Dashoard.dart';
+
+import 'Profile.dart';
+
+class Homescreen extends StatelessWidget {
+  const Homescreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+        appBar: AppBar(
+
+          actions: [
+            Icon(Icons.person),Icon(Icons.search)
+          ],
+          title: Text("My App"),
+          backgroundColor: Colors.blueAccent[900],
+        ),
+        body: Center(
+            child:Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Column"),
+                Text("Hello World"),
+                Text("Hello World"),
+                Text("Hello World"),
+                IconButton(onPressed:(){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+                }, icon: Icon(Icons.person)),
+
+                IconButton(onPressed:(){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashoard()));
+                }, icon: Icon(Icons.imagesearch_roller))
+              ],
+            )
+        ),
+        bottomNavigationBar: BottomNavigationBar(items: [BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile")],)
+    );
+
+  }
+}
